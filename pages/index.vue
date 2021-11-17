@@ -3,23 +3,14 @@
     <Banner
       class="home-banner"
       :image="bannerImage"
-      title="Dogs!"
-      message="This is a simple Vue app demonstrating components, routing and API calls."
+      title="Welcome to Petflix"
+      message=""
     />
+    <button class="button">Upload your pet photos!</button>
     <div class="tiles">
-      <ContentTile
-        v-for="tile in tiles"
-        :key="tile.title + '-tile'"
-        :title="tile.title"
-        :text="tile.text"
-        class="tile"
-      />
-      <img v-for="(imageURL, index) in apiResponse"
-            :key="index" :src="imageURL"/>
+      <ContentTile class="tile" v-for="(imageURL, index) in apiResponse" :key="index" :imageURL="imageURL">
+      </ContentTile>
     </div>
-    <br />
-    <div v-if="apiResponse">Server response: {{ apiResponse }}</div>
-    <img src="https://gradhack-2020.s3-eu-west-1.amazonaws.com/atari/05eda999-0ef0-451e-aca3-1a1950af4e63.png"></img>
   </div>
 </template>
 
@@ -104,4 +95,21 @@ export default {
 .tile {
   margin-top: 10px;
 }
+
+.picture {
+  width: 40px;
+  margin-top:90px;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.button{
+        background-color: lightseagreen;
+        margin:20px;
+        display:inline-block;
+        font-size: 32px;
+        max-width: 300px;
+        margin: auto;
+        border-radius: 5px;
+    }
 </style>

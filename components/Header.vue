@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header-container">
-      <h2 class="header-title">{{ title }}</h2>
+      <h1 class="header-title">{{ title }}</h1>
       <div class="nav">
         <nuxt-link to="/">Home</nuxt-link>
         <nuxt-link to="/about">About</nuxt-link>

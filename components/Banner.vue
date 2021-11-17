@@ -37,6 +37,7 @@ export default {
   color: white;
   height: 235px;
   overflow: hidden;
+  border-radius: 31px;
 }
 
 img {
