@@ -14,6 +14,8 @@
         :text="tile.text"
         class="tile"
       />
+      <img v-for="(imageURL, index) in apiResponse"
+            :key="index" :src="imageURL"/>
     </div>
     <br />
     <div v-if="apiResponse">Server response: {{ apiResponse }}</div>
@@ -62,7 +64,7 @@ export default {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus, nibh id faucibus egestas.',
         },
       ],
-      apiResponse: '',
+      apiResponse: [],
     }
   },
   mounted() {
@@ -71,7 +73,7 @@ export default {
   methods: {
     fetchGreeting() {
       apiGet('https://ck7f3w6408.execute-api.eu-west-1.amazonaws.com/IL/teams/atari/files')
-        .then(({ data }) => (this.apiResponse = JSON.parse(JSON.stringify(data))))
+        .then(({ data }) => (this.apiResponse = data["data"]))
         .catch(
           () => (this.apiResponse = 'Failed to retrieve data from server.')
         )
